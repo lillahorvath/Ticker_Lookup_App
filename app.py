@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect
 
+# this is where the script for the project goes
+
 app = Flask(__name__)
 
 @app.route('/')
