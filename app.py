@@ -7,6 +7,7 @@ from bokeh.models import ColumnDataSource
 from bokeh.resources import CDN
 from bokeh.embed import json_item 
 import simplejson
+import os
 
 # initialize objects
 app = Flask(__name__)
@@ -104,6 +105,9 @@ def show_me():
 
 	return simplejson.dumps(json_item(p, "myplot"))
 	
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
 
-if __name__ == '__main__':
-  app.run(port=33507)
+#if __name__ == '__main__':
+#  app.run(port=33507)
