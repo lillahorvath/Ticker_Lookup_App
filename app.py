@@ -16,7 +16,7 @@ app.user_input['req_fail'] = 'False'
 app.tdata = pd.DataFrame()
 
 # app home
-@app.route('/home', methods=['GET','POST'])
+@app.route('/', methods=['GET','POST'])
 def start_page():
 	if request.method == 'GET':
 		return render_template('start_page.html')
