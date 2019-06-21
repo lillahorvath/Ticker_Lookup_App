@@ -1,4 +1,4 @@
-# Flask on Heroku
+# Ticker Lookup App
 
 This repo contains the code behind the [Ticker Lookup App](https://horvath-dataincubator-project.herokuapp.com/) on Heroku. The app is a project of [The Data Incubator](https://www.thedataincubator.com) Data Science Fellowship Program and uses the resources listed below.  
 
