@@ -6,7 +6,7 @@ from bokeh.plotting import figure
 from bokeh.models import ColumnDataSource
 from bokeh.resources import CDN
 from bokeh.embed import json_item 
-import json
+import simplejson
 
 # initialize objects
 app = Flask(__name__)
@@ -102,7 +102,7 @@ def show_me():
 	    else: 
 	        p.line(x = 'index', y = 'close', legend=app.user_input['ticker'] + ' close', line_width=2, line_color = 'orange', source=toplot_df)   
 
-	return json.dumps(json_item(p, "myplot"))
+	return simplejson.dumps(json_item(p, "myplot"))
 	
 
 if __name__ == '__main__':
