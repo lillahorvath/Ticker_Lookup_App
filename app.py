@@ -30,7 +30,7 @@ def start_page():
 			return redirect('/cantshow')
 		# get data
 		else: 
-			return redirect('/')
+			return redirect('/showme')
 
 # can't show the plot
 @app.route('/cantshow')
@@ -49,7 +49,7 @@ def cantshow():
 		return render_template('except_page.html', message = 'Please enter a valid ticker symbol')	
 
 # prepare to show (or not show) the plot
-@app.route('/')
+@app.route('/showme')
 def root():
 
 	# get data
@@ -80,7 +80,7 @@ def root():
 		return redirect('/cantshow')
 
 # show the plot
-@app.route('/showme')
+@app.route('/plot')
 def show_me():
 
 	# plot data
