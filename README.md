@@ -1,5 +1,8 @@
 # Flask on Heroku
 
+This is the code behind the Ticker Lookup App on Heroku. The app is a project of The Data Incubator Data Science Fellowship Program and uses the resources listed below.  
+
+## TDI - About the project
 This project is intended to help you tie together some important concepts and
 technologies from the 12-day course, including Git, Flask, JSON, Pandas,
 Requests, Heroku, and Bokeh for visualization.
