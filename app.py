@@ -38,15 +38,15 @@ def cantshow():
 	
 	# if missing user data
 	if app.user_input['ticker'] == '' and len(app.user_input['toplot']) == 0 :
-		return render_template('except_page.html', message = 'Please enter a ticker symbol and select a price to plot')
+		return render_template('except_page.html', message = 'Please enter a ticker symbol and select a price to plot.')
 	elif app.user_input['ticker'] == '':
-		return render_template('except_page.html', message = 'Please enter a ticker symbol')	
+		return render_template('except_page.html', message = 'Please enter a ticker symbol.')	
 	elif len(app.user_input['toplot']) == 0:
-		return render_template('except_page.html', message ='Please select a price to plot')
+		return render_template('except_page.html', message ='Please select a price to plot.')
 
 	# if invalid user data
 	if app.user_input['req_fail']:
-		return render_template('except_page.html', message = 'Please enter a valid ticker symbol')	
+		return render_template('except_page.html', message = 'Please enter a valid ticker symbol.')	
 
 # prepare to show (or not show) the plot
 @app.route('/showme')
@@ -95,13 +95,18 @@ def show_me():
         tools="pan,box_zoom,reset,save")
 
 	if len(app.user_input['toplot']) == 2:
-	    p.line(x = 'index', y = 'open', legend=app.user_input['ticker'] + ' open', line_width=2, line_color = 'blue', source=toplot_df)   
-	    p.line(x = 'index', y = 'close', legend=app.user_input['ticker'] + ' close', line_width=2, line_color = 'orange', source=toplot_df)   
+	    p.line(x = 'index', y = 'open', legend=app.user_input['ticker'] + ' open', line_width=2, line_color = '#1A96F8', source=toplot_df)   
+	    p.line(x = 'index', y = 'close', legend=app.user_input['ticker'] + ' close', line_width=2, line_color = '#FC2A1C', source=toplot_df)   
 	else: 
 	    if 'open' in app.user_input['toplot']:
-	        p.line(x = 'index', y = 'open', legend=app.user_input['ticker'] + ' open', line_width=2, line_color = 'blue', source=toplot_df) 
+	        p.line(x = 'index', y = 'open', legend=app.user_input['ticker'] + ' open', line_width=2, line_color = '#1A96F8', source=toplot_df) 
 	    else: 
-	        p.line(x = 'index', y = 'close', legend=app.user_input['ticker'] + ' close', line_width=2, line_color = 'orange', source=toplot_df)   
+	        p.line(x = 'index', y = 'close', legend=app.user_input['ticker'] + ' close', line_width=2, line_color = '#FC2A1C', source=toplot_df)   
+
+	p.xaxis.axis_label_text_font_style = "normal" 
+	p.ygrid.grid_line_alpha = 0.8
+	p.xgrid.grid_line_alpha = None
+	p.yaxis.minor_tick_line_color = None        
 
 	return simplejson.dumps(json_item(p, "myplot"))
 	
